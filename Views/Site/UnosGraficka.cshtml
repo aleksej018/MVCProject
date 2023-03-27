@@ -1,0 +1,65 @@
+﻿@model Projekat.Models.Graficka
+
+@{
+    ViewBag.Title = "UnosGraficka";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("UnosGraficka", "Site", FormMethod.Post)) //helperi
+{
+<div class="main-title">
+    <h2>Unos neve komponente (Graficka kartica)</h2>
+</div>
+<div class="unosForm">
+    <label>Naziv komponente:</label>
+    @Html.TextBoxFor(x => x.Naziv)
+
+    <label>Slika komponente:</label>
+    @Html.TextBoxFor(x => x.Slika)
+
+    <hr>
+
+    <label>Cena komponente:</label>
+    @Html.TextBoxFor(x => x.Cena)
+
+    <label>Proizvodjac:</label>
+    @Html.DropDownListFor(x => x.Proizvodjac, new[] {
+        new SelectListItem()
+        {
+            Text = "HyperX",
+            Value = "HybperX"
+        },
+        new SelectListItem()
+        {
+            Text = "RedDragon",
+            Value = "RedDragon"
+        },
+        new SelectListItem()
+        {
+            Text = "Asus",
+            Value = "Asus"
+        },
+        new SelectListItem()
+        {
+            Text = "Corsair",
+            Value = "Corsair"
+        },
+    })
+</div>
+<div class="unosForm">
+    <hr />
+    <label>Proizvod na akciji</label>
+    <label>@Html.CheckBoxFor(x => x.Akcija) Da </label>
+
+    <label>Kolicina memorije:</label>
+    @Html.TextBoxFor(x => x.Memorija)
+
+    <label>Opis komponente</label>
+    @Html.TextAreaFor(x => x.Opis)
+</div>
+
+<input type="submit" class="unosForm dugmeUnos" value="UNESI">
+}

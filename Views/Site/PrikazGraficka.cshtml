@@ -1,0 +1,30 @@
+﻿@model Projekat.Models.Graficka
+@{
+    ViewBag.Title = "PrikazGraficka";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<div class="prikaz_div">
+<h2>@Model.Naziv</h2>
+
+<a class="slika_prikaz"><img src="@Model.Slika" alt="@Model.Naziv"></a>
+
+<h2>Cena: @Model.Cena</h2>
+<h3>Proizvodjac: @Model.Proizvodjac</h3>
+@if (Model.Akcija)
+{
+    <h3>Proizvod je trenutno na akciji</h3>
+}
+else
+{
+    <h3>Komponenta nije na akciji</h3>
+}
+
+<h3>Kolicina memorije: @Model.Memorija</h3>
+
+<details>
+    <summary>Opis komponente</summary>
+    <p>@Model.Opis</p>
+</details>
+</div>
